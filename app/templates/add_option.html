@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for option in options %}
+<li>{{ loop.index }}. {{ option.option_text }}</li>
+{% endfor %}
+
+<h2>Add Option</h2>
+<form method="post">
+  <label for="option_text">Option Text:</label>
+  <input type="text" id="option_text" name="option_text" required />
+  <input type="hidden" id="survey_id" name="survey_id" value="{{survey_id}}">
+  <button name = 'work_with_option' value= 'add_option' type="submit">Add Option</button>
+</form>
+<br>
+<a
+  href="{{ url_for('all_surveys') }}"
+  class="btn btn-secondary"
+  >Close editing</a
+>
+{% endblock %}
